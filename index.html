@@ -2,73 +2,50 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>For Nnay 💖</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>For Nayla 💖</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- SCENE 1 : FIREWORK HITAM PUTIH -->
-<section id="scene-firework" class="scene active">
+<!-- SCENE 1 : FIREWORK -->
+<section class="scene active" id="scene-firework">
   <div class="firework-container"></div>
 </section>
 
 <!-- SCENE 2 : PAINTBALL LOVE -->
-<section id="scene-paintball" class="scene">
+<section class="scene" id="scene-paintball">
   <div class="paintball-container">
-    <div class="love-shape">
-      <span class="love-text">Nayla</span>
-    </div>
+    <div class="love-text">Nayla</div>
   </div>
 </section>
 
 <!-- SCENE 3 : CARRIAGE -->
-<section class="scene">
+<section class="scene" id="scene-carriage">
   <svg class="carriage-svg" width="320" height="160" viewBox="0 0 320 160">
-    ...
-  </svg>
-</section>
-  <!-- BAN BELAKANG -->
-  <g class="wheel back-wheel" transform="translate(70 120)">
-    <circle r="22" fill="#333"/>
-    <circle r="5" fill="#aaa"/>
-    <line x1="0" y1="-20" x2="0" y2="20" stroke="#aaa"/>
-    <line x1="-20" y1="0" x2="20" y2="0" stroke="#aaa"/>
-  </g>
-
-  <!-- BAN DEPAN -->
-  <g class="wheel front-wheel" transform="translate(230 120)">
-    <circle r="18" fill="#333"/>
-    <circle r="4" fill="#aaa"/>
-    <line x1="0" y1="-16" x2="0" y2="16" stroke="#aaa"/>
-    <line x1="-16" y1="0" x2="16" y2="0" stroke="#aaa"/>
-  </g>
-
-  <!-- GERBONG -->
-  <g class="carriage-body">
+    <g class="wheel" transform="translate(70 120)">
+      <circle r="22" fill="#333"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#aaa"/>
+      <line x1="0" y1="-20" x2="0" y2="20" stroke="#aaa"/>
+    </g>
+    <g class="wheel" transform="translate(230 120)">
+      <circle r="18" fill="#333"/>
+      <line x1="-16" y1="0" x2="16" y2="0" stroke="#aaa"/>
+      <line x1="0" y1="-16" x2="0" y2="16" stroke="#aaa"/>
+    </g>
     <rect x="90" y="40" width="130" height="60" rx="20" fill="#ffb6c1"/>
     <rect x="110" y="20" width="90" height="40" rx="20" fill="#ffd1dc"/>
-    <circle cx="155" cy="70" r="12" fill="white"/>
-  </g>
+  </svg>
+</section>
 
-</svg>
 <!-- SCENE 4 : CINDERELLA -->
-<section id="scene-cinderella" class="scene">
-  <img src="assets/img/cinderella.png" class="cinderella">
+<section class="scene" id="scene-cinderella">
+  <img src="cinderella.png" class="cinderella">
   <div class="card">
-    <h2>Haii Pacar Kandung</h2>
-    <p>
-      Jjr Kangen dehh!!<br>
-      Look Imups Bgts
-    </p>
-
-    <div class="frames">
-      <img src="assets/img/frame1.jpg">
-      <img src="assets/img/frame2.jpg">
-      <img src="assets/img/frame3.jpg">
-    </div>
+    <h2>Hai Pacar Kandung</h2>
+    <p>Kangen kamu. Jangan ilang ya.</p>
   </div>
 </section>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
