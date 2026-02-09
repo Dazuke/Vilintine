@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #000;
+  background: black;
   overflow: hidden;
 }
 
@@ -23,50 +23,38 @@ body {
 }
 
 /* FIREWORK */
-#scene-firework {
-  background: black;
-}
-
 .firework-container {
-  position: relative;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
-/* ROCKET */
 .rocket {
   position: absolute;
   width: 4px;
   height: 20px;
   background: white;
-  left: 50%;
   bottom: 0;
-  transform: translateX(-50%);
-  animation: launch 1.2s ease-out forwards;
+  animation: launch 1.2s forwards;
 }
 
 @keyframes launch {
   to {
-    transform: translate(-50%, -400px);
+    transform: translateY(-400px);
     opacity: 0;
   }
 }
 
-/* PARTICLE */
 .particle {
   position: absolute;
   width: 6px;
   height: 6px;
   background: pink;
   border-radius: 50%;
-  animation: explode 1.5s ease-out forwards;
+  animation: explode 1.5s forwards;
 }
 
 @keyframes explode {
-  from {
-    transform: rotate(var(--angle)) translateX(0);
-    opacity: 1;
-  }
   to {
     transform: rotate(var(--angle)) translateX(var(--distance));
     opacity: 0;
@@ -84,60 +72,64 @@ body {
   position: relative;
 }
 
-.love-shape {
-  width: 100%;
-  height: 100%;
+.ball {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  top: 0;
+  animation: drop 0.4s forwards;
+}
+
+@keyframes drop {
+  to {
+    transform: translateY(var(--drop));
+  }
+}
+
+.paint {
+  position: absolute;
+  width: 22px;
+  height: 22px;
   background: red;
-  clip-path: path("M150 270 L20 130 A70 70 0 1 1 150 70 A70 70 0 1 1 280 130 Z");
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 50%;
   opacity: 0;
-  animation: reveal 3s forwards;
+  transform: scale(0.2);
+  transition: 0.8s;
+}
+
+.paint.pink {
+  background: hotpink;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .love-text {
-  color: white;
-  font-size: 24px;
+  position: absolute;
+  bottom: -40px;
+  font-size: 28px;
   font-weight: bold;
-}
-
-@keyframes reveal {
-  to { opacity: 1; }
+  color: white;
 }
 
 /* CARRIAGE */
 .carriage-svg {
-  animation: moveForward 3s linear infinite;
+  animation: move 3s infinite alternate;
+}
+
+@keyframes move {
+  from { transform: translateX(-40px); }
+  to { transform: translateX(40px); }
 }
 
 .wheel {
-  transform-origin: center;
   animation: spin 1s linear infinite;
+  transform-origin: center;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes moveForward {
-  from {
-    transform: translateX(-30px);
-  }
-  to {
-    transform: translateX(30px);
-  }
-}
-
-#nextScene {
-  margin-top: 20px;
-  padding: 10px 25px;
-  border: none;
-  background: pink;
-  font-size: 16px;
-  cursor: pointer;
+  to { transform: rotate(360deg); }
 }
 
 /* CINDERELLA */
@@ -148,7 +140,7 @@ body {
 
 .cinderella {
   width: 200px;
-  animation: pop 1s ease-out forwards;
+  animation: pop 1s forwards;
 }
 
 @keyframes pop {
@@ -161,20 +153,4 @@ body {
   padding: 20px;
   margin-top: 15px;
   border-radius: 12px;
-  text-align: center;
-  width: 80%;
-  max-width: 400px;
-}
-
-.frames {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.frames img {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
 }
