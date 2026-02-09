@@ -71,19 +71,28 @@ body {
 }
 
 /* CARRIAGE */
-#scene-carriage {
-  background: linear-gradient(#1a1a2e, #000);
-  flex-direction: column;
+.carriage-svg {
+  animation: moveForward 3s linear infinite;
 }
 
-.carriage {
-  width: 300px;
-  animation: move 4s infinite alternate;
+.wheel {
+  transform-origin: center;
+  animation: spin 1s linear infinite;
 }
 
-@keyframes move {
-  from { transform: translateX(-20px); }
-  to { transform: translateX(20px); }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveForward {
+  from {
+    transform: translateX(-30px);
+  }
+  to {
+    transform: translateX(30px);
+  }
 }
 
 #nextScene {
