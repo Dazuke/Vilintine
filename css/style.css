@@ -23,18 +23,54 @@ body {
 }
 
 /* FIREWORK */
-.firework-container span {
+#scene-firework {
+  background: black;
+}
+
+.firework-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ROCKET */
+.rocket {
   position: absolute;
   width: 4px;
-  height: 4px;
+  height: 20px;
   background: white;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  animation: launch 1.2s ease-out forwards;
+}
+
+@keyframes launch {
+  to {
+    transform: translate(-50%, -400px);
+    opacity: 0;
+  }
+}
+
+/* PARTICLE */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: pink;
   border-radius: 50%;
-  animation: explode 2s ease-out forwards;
+  animation: explode 1.5s ease-out forwards;
 }
 
 @keyframes explode {
-  from { transform: scale(0); opacity: 1; }
-  to { transform: translate(var(--x), var(--y)) scale(1); opacity: 0; }
+  from {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(var(--angle)) translateX(var(--distance));
+    opacity: 0;
+  }
 }
 
 /* PAINTBALL */
