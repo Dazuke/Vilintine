@@ -1,4 +1,9 @@
-* { margin:0; padding:0; box-sizing:border-box; font-family:Segoe UI,sans-serif; }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
 
 body {
   background:black;
@@ -7,7 +12,7 @@ body {
 }
 
 body.grayscale {
-  filter: grayscale(100%);
+  filter:grayscale(100%);
 }
 
 .scene {
@@ -18,26 +23,32 @@ body.grayscale {
   align-items:center;
 }
 
-.scene.active { display:flex; }
+.scene.active {
+  display:flex;
+}
 
 /* FIREWORK */
 .firework-container {
   width:100%;
   height:100%;
   position:relative;
+  z-index:5;
 }
 
 .rocket {
   position:absolute;
   width:4px;
-  height:20px;
+  height:22px;
   background:white;
   bottom:0;
-  animation:launch 1.2s ease-out forwards;
+  animation:launch 1.3s ease-out forwards;
 }
 
 @keyframes launch {
-  to { transform:translateY(-400px); opacity:0; }
+  to {
+    transform:translateY(-520px);
+    opacity:0;
+  }
 }
 
 .particle {
@@ -46,16 +57,23 @@ body.grayscale {
   height:6px;
   background:hotpink;
   border-radius:50%;
-  animation:explode 1.5s forwards;
+  animation:explode 1.5s ease-out forwards;
 }
 
 @keyframes explode {
-  from { transform:rotate(var(--a)) translateX(0); }
-  to { transform:rotate(var(--a)) translateX(var(--d)); opacity:0; }
+  from {
+    transform:rotate(var(--a)) translateX(0);
+  }
+  to {
+    transform:rotate(var(--a)) translateX(var(--d));
+    opacity:0;
+  }
 }
 
 /* PAINTBALL */
-#scene-paintball { background:#111; }
+#scene-paintball {
+  background:#111;
+}
 
 .paintball-container {
   width:300px;
@@ -73,7 +91,9 @@ body.grayscale {
 }
 
 @keyframes drop {
-  to { transform:translateY(var(--y)); }
+  to {
+    transform:translateY(var(--y));
+  }
 }
 
 .paint {
@@ -136,6 +156,7 @@ body.grayscale {
   background:#ff69b4;
   color:white;
   border-radius:20px;
+  cursor:pointer;
 }
 
 /* FINAL */
@@ -145,15 +166,40 @@ body.grayscale {
   text-align:center;
 }
 
+.cinderella {
+  width:140px;
+  margin-bottom:10px;
+}
+
+.card {
+  background:white;
+  padding:14px 18px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,.15);
+  width:220px;
+  margin-bottom:12px;
+}
+
+.card h2 {
+  font-size:16px;
+  color:#ff69b4;
+  margin-bottom:6px;
+}
+
+.card p {
+  font-size:13px;
+  color:#333;
+  line-height:1.4;
+}
+
 .frames {
   display:flex;
   gap:12px;
-  margin-top:15px;
 }
 
 .frame {
   position:relative;
-  width:70px;
+  width:60px;
 }
 
 .frame::before {
