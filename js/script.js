@@ -10,33 +10,36 @@ function showScene(i){
 const fw = document.querySelector(".firework-container");
 
 function launch(x){
-  const r=document.createElement("div");
-  r.className="rocket";
-  r.style.left=x+"px";
+  const r = document.createElement("div");
+  r.className = "rocket";
+  r.style.left = x + "px";
   fw.appendChild(r);
 
   setTimeout(()=>{
     r.remove();
     explode(x,200);
-  },1200);
+  },1300);
 }
 
 function explode(x,y){
-  for(let i=0;i<30;i++){
+  for(let i=0;i<32;i++){
     const p=document.createElement("div");
     p.className="particle";
     p.style.left=x+"px";
     p.style.top=y+"px";
-    p.style.setProperty("--a",`${i*12}deg`);
+    p.style.setProperty("--a",`${i*11}deg`);
     p.style.setProperty("--d",`${80+Math.random()*40}px`);
     fw.appendChild(p);
     setTimeout(()=>p.remove(),1500);
   }
 }
 
-launch(200); launch(400); launch(600);
+/* LAUNCH FIREWORK */
+launch(200);
+launch(400);
+launch(600);
 
-/* PAINTBALL */
+/* PAINTBALL LOVE */
 const area=document.querySelector(".paintball-container");
 const text=document.querySelector(".love-text");
 const points=[];
