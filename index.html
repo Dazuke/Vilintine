@@ -2,36 +2,32 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>For Nayla 💖</title>
+  <title>For Nayla</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="grayscale">
 
 <audio id="bgm" src="audio/love.mp3" loop></audio>
 
 <!-- SCENE 1 : FIREWORK -->
-<section class="scene active">
+<section class="scene active" id="scene-firework">
   <div class="firework-container"></div>
 </section>
 
 <!-- SCENE 2 : PAINTBALL LOVE -->
-<section class="scene">
+<section class="scene" id="scene-paintball">
   <div class="paintball-container">
     <div class="love-text">Nayla</div>
   </div>
 </section>
 
 <!-- SCENE 3 : CARRIAGE -->
-<section class="scene scene-carriage">
+<section class="scene scene-carriage" id="scene-carriage">
   <svg class="carriage-svg" viewBox="0 0 400 200">
-    <!-- BODY -->
     <path d="M80 110 Q200 40 320 110 Z" fill="#ffb6c1"/>
     <rect x="130" y="60" width="140" height="60" rx="30" fill="#ffd1dc"/>
-
-    <!-- ROOF -->
     <path d="M140 60 Q200 20 260 60" fill="none" stroke="#ff69b4" stroke-width="6"/>
 
-    <!-- WHEELS -->
     <g class="wheel" transform="translate(130 130)">
       <circle r="22" fill="#333"/>
     </g>
@@ -43,21 +39,20 @@
   <button id="nextBtn">Lanjut 💖</button>
 </section>
 
-<!-- SCENE 4 : CINDERELLA -->
-<section class="scene scene-cinderella">
+<!-- SCENE 4 : FINAL -->
+<section class="scene scene-final" id="scene-final">
   <img src="assets/img/cinderella.png" class="cinderella">
+
   <h2>Alo pacar kandung</h2>
-  <p>Jjr ak kangen, hmm alay gpp kan?</p>
-</section>
+  <p>Jjr ak kangen, alay dikit gppkan </p>
+
   <div class="frames">
-      <img src="assets/img/frame1.jpg">
-      <img src="assets/img/frame2.jpg">
-      <img src="assets/img/frame3.jpg">
-    </div>
+    <div class="frame"><img src="assets/img/frame1.jpg"></div>
+    <div class="frame"><img src="assets/img/frame2.jpg"></div>
+    <div class="frame"><img src="assets/img/frame3.jpg"></div>
   </div>
 </section>
 
 <script src="js/script.js"></script>
 </body>
 </html>
-=
