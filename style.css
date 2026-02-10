@@ -37,23 +37,24 @@ body.grayscale {
 
 .rocket {
   position:absolute;
-  width:5px;
+  width:6px;
   height:40px;
   background:white;
-  bottom:0;
   border-radius:3px;
+  bottom:0;
   animation:launch 1.3s ease-out forwards;
 }
+
 .rocket::before {
   content:"";
   position:absolute;
   top:-6px;
-  left:0;
   width:6px;
   height:6px;
   background:hotpink;
   border-radius:50%;
 }
+
 @keyframes launch {
   to {
     transform:translateY(-520px);
@@ -71,9 +72,7 @@ body.grayscale {
 }
 
 @keyframes explode {
-  from {
-    transform:rotate(var(--a)) translateX(0);
-  }
+  from { transform:rotate(var(--a)) translateX(0); }
   to {
     transform:rotate(var(--a)) translateX(var(--d));
     opacity:0;
@@ -101,9 +100,7 @@ body.grayscale {
 }
 
 @keyframes drop {
-  to {
-    transform:translateY(var(--y));
-  }
+  to { transform:translateY(var(--y)); }
 }
 
 .paint {
@@ -135,6 +132,11 @@ body.grayscale {
 }
 
 /* CARRIAGE */
+.scene-carriage {
+  flex-direction:column;
+  background:#ffe4ec;
+}
+
 .carriage-wrapper {
   position:relative;
   width:320px;
@@ -142,10 +144,8 @@ body.grayscale {
 
 .carriage-img {
   width:100%;
-  display:block;
 }
 
-/* BAN */
 .wheel {
   position:absolute;
   width:40px;
@@ -156,17 +156,48 @@ body.grayscale {
   animation:spin 1s linear infinite;
 }
 
-.wheel-left {
-  left:55px;
-}
-
-.wheel-right {
-  right:55px;
-}
+.wheel-left { left:55px; }
+.wheel-right { right:55px; }
 
 @keyframes spin {
   to { transform:rotate(360deg); }
 }
+
+/* Cinderella di kereta */
+.carriage-cinderella {
+  position:absolute;
+  width:90px;
+  left:50%;
+  top:35px;
+  transform:translateX(-50%);
+  opacity:0;
+}
+
+.carriage-cinderella.show {
+  animation:exitCarriage 1.2s ease forwards;
+}
+
+@keyframes exitCarriage {
+  from {
+    transform:translate(-50%, 20px);
+    opacity:0;
+  }
+  to {
+    transform:translate(-50%, -30px);
+    opacity:1;
+  }
+}
+
+#nextBtn {
+  margin-top:20px;
+  padding:10px 25px;
+  border:none;
+  background:#ff69b4;
+  color:white;
+  border-radius:20px;
+  cursor:pointer;
+}
+
 /* FINAL */
 .scene-final {
   background:#ffe4ec;
@@ -174,7 +205,7 @@ body.grayscale {
   text-align:center;
 }
 
-.cinderella {
+.final-cinderella {
   width:140px;
   margin-bottom:10px;
 }
