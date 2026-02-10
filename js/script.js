@@ -1,67 +1,79 @@
 const scenes = document.querySelectorAll(".scene");
+const bgm = document.getElementById("bgm");
+let current = 0;
 
 function showScene(i) {
-  scenes.forEach(s => s.classList.remove("active"));
+  scenes.forEach(s=>s.classList.remove("active"));
   scenes[i].classList.add("active");
+  current = i;
 }
 
 /* FIREWORK */
 const fw = document.querySelector(".firework-container");
 
-function fire(x) {
+function firework(x,y){
   const r = document.createElement("div");
-  r.className = "rocket";
-  r.style.left = x + "px";
+  r.className="rocket";
+  r.style.left=x+"px";
   fw.appendChild(r);
 
-  setTimeout(() => {
+  setTimeout(()=>{
     r.remove();
-    for (let i = 0; i < 24; i++) {
-      const p = document.createElement("div");
-      p.className = "particle";
-      p.style.left = x + "px";
-      p.style.top = "200px";
-      p.style.setProperty("--angle", `${i * 15}deg`);
-      p.style.setProperty("--distance", "80px");
+    for(let i=0;i<36;i++){
+      const p=document.createElement("div");
+      p.className="particle";
+      p.style.left=x+"px";
+      p.style.top=y+"px";
+      p.style.setProperty("--angle",i*10+"deg");
+      p.style.setProperty("--distance",(80+Math.random()*40)+"px");
       fw.appendChild(p);
-      setTimeout(() => p.remove(), 1500);
+      setTimeout(()=>p.remove(),1500);
     }
-  }, 1200);
+  },1200);
 }
 
-/* PAINTBALL */
+/* LOVE POINTS */
 const area = document.querySelector(".paintball-container");
-const points = [
-  {x:150,y:60},{x:190,y:90},{x:210,y:130},{x:190,y:170},
-  {x:150,y:210},{x:110,y:170},{x:90,y:130},{x:110,y:90}
-];
+const text = document.querySelector(".love-text");
+const points=[];
 
-function shoot(p,i) {
-  const b = document.createElement("div");
-  b.className = "ball";
-  b.style.left = p.x + "px";
-  b.style.setProperty("--drop", p.y + "px");
+for(let t=0;t<Math.PI*2;t+=0.25){
+  const x=150+80*Math.sin(t)**3;
+  const y=150-70*(Math.cos(t)-Math.cos(2*t)/2);
+  points.push({x,y});
+}
+
+function shoot(p,i){
+  const b=document.createElement("div");
+  b.className="ball";
+  b.style.left=p.x+"px";
+  b.style.setProperty("--drop",p.y+"px");
   area.appendChild(b);
 
-  setTimeout(() => {
+  setTimeout(()=>{
     b.remove();
-    const c = document.createElement("div");
-    c.className = "paint";
-    c.style.left = p.x - 11 + "px";
-    c.style.top = p.y - 11 + "px";
+    const c=document.createElement("div");
+    c.className="paint";
+    c.style.left=p.x-10+"px";
+    c.style.top=p.y-10+"px";
     area.appendChild(c);
-    setTimeout(()=>c.classList.add("pink"),i*80);
+    setTimeout(()=>c.classList.add("show"),i*30);
   },400);
 }
 
 /* TIMELINE */
 showScene(0);
-fire(200); fire(400);
-
+firework(200,200);
+setTimeout(()=>firework(400,180),600);
 setTimeout(()=>{
   showScene(1);
-  points.forEach((p,i)=>setTimeout(()=>shoot(p,i),i*200));
-},3000);
+  points.forEach((p,i)=>setTimeout(()=>shoot(p,i),i*120));
+  setTimeout(()=>text.style.opacity=1,points.length*120);
+},3500);
 
-setTimeout(()=>showScene(2),8000);
-setTimeout(()=>showScene(3),11000);
+setTimeout(()=>showScene(2),9000);
+
+document.getElementById("nextBtn").onclick=()=>{
+  bgm.play();
+  showScene(3);
+};
