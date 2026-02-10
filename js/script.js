@@ -9,29 +9,45 @@ function showScene(i) {
 }
 
 /* FIREWORK */
-const fw = document.querySelector(".firework-container");
+const container = document.querySelector(".firework-container");
 
-function firework(x,y){
-  const r = document.createElement("div");
-  r.className="rocket";
-  r.style.left=x+"px";
-  fw.appendChild(r);
+function launchFirework(x, y) {
+  const rocket = document.createElement("div");
+  rocket.className = "rocket";
+  rocket.style.left = x + "px";
+  container.appendChild(rocket);
 
-  setTimeout(()=>{
-    r.remove();
-    for(let i=0;i<36;i++){
-      const p=document.createElement("div");
-      p.className="particle";
-      p.style.left=x+"px";
-      p.style.top=y+"px";
-      p.style.setProperty("--angle",i*10+"deg");
-      p.style.setProperty("--distance",(80+Math.random()*40)+"px");
-      fw.appendChild(p);
-      setTimeout(()=>p.remove(),1500);
-    }
-  },1200);
+  setTimeout(() => {
+    rocket.remove();
+    explode(x, y);
+  }, 1200);
 }
 
+function explode(x, y) {
+  const total = 36; // jumlah partikel
+  for (let i = 0; i < total; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+    p.style.left = x + "px";
+    p.style.top = y + "px";
+    p.style.setProperty("--angle", `${(360 / total) * i}deg`);
+    p.style.setProperty("--distance", `${80 + Math.random() * 40}px`);
+    container.appendChild(p);
+
+    setTimeout(() => p.remove(), 1500);
+  }
+}
+
+/* 3 LEDAKAN */
+setTimeout(() => launchFirework(200, 200), 200);
+setTimeout(() => launchFirework(500, 180), 900);
+setTimeout(() => launchFirework(350, 120), 1600);
+
+/* PINDAH SCENE SETELAH SELESAI */
+setTimeout(() => {
+  document.getElementById("scene-firework").classList.remove("active");
+  document.getElementById("scene-paintball").classList.add("active");
+}, 3500);
 /* LOVE POINTS */
 const area = document.querySelector(".paintball-container");
 const text = document.querySelector(".love-text");
