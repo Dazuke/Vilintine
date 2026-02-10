@@ -125,40 +125,38 @@ body.grayscale {
 }
 
 /* CARRIAGE */
-.scene-carriage {
-  flex-direction:column;
-  background:#ffe4ec;
-}
-
-.carriage-svg {
+.carriage-wrapper {
+  position:relative;
   width:320px;
-  animation:float 3s ease-in-out infinite alternate;
 }
 
-@keyframes float {
-  from { transform:translateX(-30px); }
-  to { transform:translateX(30px); }
+.carriage-img {
+  width:100%;
+  display:block;
 }
 
+/* BAN */
 .wheel {
-  transform-origin:center;
+  position:absolute;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:4px solid #333;
+  bottom:8px;
   animation:spin 1s linear infinite;
+}
+
+.wheel-left {
+  left:55px;
+}
+
+.wheel-right {
+  right:55px;
 }
 
 @keyframes spin {
   to { transform:rotate(360deg); }
 }
-
-#nextBtn {
-  margin-top:20px;
-  padding:10px 25px;
-  border:none;
-  background:#ff69b4;
-  color:white;
-  border-radius:20px;
-  cursor:pointer;
-}
-
 /* FINAL */
 .scene-final {
   background:#ffe4ec;
