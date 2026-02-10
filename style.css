@@ -13,34 +13,53 @@ body { background:black; overflow:hidden; }
 .scene.active { display:flex; }
 
 /* FIREWORK */
-.firework-container { width:100%; height:100%; position:relative; }
+#scene-firework {
+  background: black;
+}
 
+.firework-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ROCKET */
 .rocket {
-  position:absolute;
-  width:4px;
-  height:20px;
-  background:white;
-  bottom:0;
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  background: white;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   animation: launch 1.2s ease-out forwards;
 }
 
 @keyframes launch {
-  to { transform: translateY(-400px); opacity:0; }
+  to {
+    transform: translate(-50%, -400px);
+    opacity: 0;
+  }
 }
 
+/* PARTICLE */
 .particle {
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:pink;
-  border-radius:50%;
-  animation: explode 1.5s forwards;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: pink;
+  border-radius: 50%;
+  animation: explode 1.5s ease-out forwards;
 }
 
 @keyframes explode {
+  from {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+  }
   to {
     transform: rotate(var(--angle)) translateX(var(--distance));
-    opacity:0;
+    opacity: 0;
   }
 }
 
