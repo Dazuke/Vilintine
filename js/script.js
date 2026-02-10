@@ -10,9 +10,9 @@ function showScene(i){
 const fw = document.querySelector(".firework-container");
 
 function launch(x){
-  const r = document.createElement("div");
-  r.className = "rocket";
-  r.style.left = x + "px";
+  const r=document.createElement("div");
+  r.className="rocket";
+  r.style.left=x+"px";
   fw.appendChild(r);
 
   setTimeout(()=>{
@@ -34,12 +34,9 @@ function explode(x,y){
   }
 }
 
-/* LAUNCH FIREWORK */
-launch(200);
-launch(400);
-launch(600);
+launch(200); launch(400); launch(600);
 
-/* PAINTBALL LOVE */
+/* PAINTBALL */
 const area=document.querySelector(".paintball-container");
 const text=document.querySelector(".love-text");
 const points=[];
@@ -79,7 +76,15 @@ setTimeout(()=>{
 
 setTimeout(()=>showScene(2),9000);
 
-document.getElementById("nextBtn").onclick=()=>{
+/* BUTTON */
+const btn=document.getElementById("nextBtn");
+const cinderella=document.querySelector(".carriage-cinderella");
+
+btn.onclick=()=>{
+  cinderella.classList.add("show");
   bgm.play();
-  showScene(3);
+
+  setTimeout(()=>{
+    showScene(3);
+  },1300);
 };
