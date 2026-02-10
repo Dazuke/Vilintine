@@ -37,13 +37,23 @@ body.grayscale {
 
 .rocket {
   position:absolute;
-  width:4px;
-  height:22px;
+  width:5px;
+  height:40px;
   background:white;
   bottom:0;
+  border-radius:3px;
   animation:launch 1.3s ease-out forwards;
 }
-
+.rocket::before {
+  content:"";
+  position:absolute;
+  top:-6px;
+  left:0;
+  width:6px;
+  height:6px;
+  background:hotpink;
+  border-radius:50%;
+}
 @keyframes launch {
   to {
     transform:translateY(-520px);
