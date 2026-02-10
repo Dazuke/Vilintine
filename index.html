@@ -23,18 +23,16 @@
 
 <!-- SCENE 3 : CARRIAGE -->
 <section class="scene scene-carriage" id="scene-carriage">
-  <svg class="carriage-svg" viewBox="0 0 400 200">
-    <path d="M80 110 Q200 40 320 110 Z" fill="#ffb6c1"/>
-    <rect x="130" y="60" width="140" height="60" rx="30" fill="#ffd1dc"/>
-    <path d="M140 60 Q200 20 260 60" fill="none" stroke="#ff69b4" stroke-width="6"/>
 
-    <g class="wheel" transform="translate(130 130)">
-      <circle r="22" fill="#333"/>
-    </g>
-    <g class="wheel" transform="translate(270 130)">
-      <circle r="22" fill="#333"/>
-    </g>
-  </svg>
+  <div class="carriage-wrapper">
+    <img src="assets/img/carriage.png" class="carriage-img">
+
+    <div class="wheel wheel-left"></div>
+    <div class="wheel wheel-right"></div>
+  </div>
+
+  <button id="nextBtn">Lanjut 💖</button>
+</section>
 
   <button id="nextBtn">Lanjut 💖</button>
 </section>
